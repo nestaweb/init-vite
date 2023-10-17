@@ -5,7 +5,6 @@ else
 	directory=$1
 fi
 
-chmod +x init.sh
 alias init_vite="sh ~/init-vite/init.sh"
 
 echo $directory "has been created"
