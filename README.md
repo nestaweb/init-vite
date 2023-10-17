@@ -9,3 +9,9 @@ To create a new project in your current folder run :
 ```bash
 ~/init-vite/init.sh <project-name>
 ```
+
+After the first run you can do :
+
+```bash
+init-vite <project-name>
+```
