@@ -15,3 +15,9 @@ After the first run you can do :
 ```bash
 init-vite <project-name>
 ```
+
+Update init-vite :
+
+```bash
+init-vite --update
+```

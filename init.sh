@@ -5,13 +5,22 @@ else
 	directory=$1
 fi
 
-if [ -z "$1" ]
+if [ -z "$2" ]
 then 
 	template="vanilla"
 else
 	template=$2
 fi
 
+if [ $1 == "--update" ]
+then
+	cd ~/init-vite
+	git pull
+	echo "init-vite has been updated"
+	exit
+fi
+
+alias init_vite="sh ~/init-vite/init.sh"
 alias init_vite="sh ~/init-vite/init.sh"
 
 echo $directory "has been created"
