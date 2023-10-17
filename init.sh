@@ -5,12 +5,19 @@ else
 	directory=$1
 fi
 
+if [ -z "$1" ]
+then 
+	template="vanilla"
+else
+	template=$2
+fi
+
 alias init_vite="sh ~/init-vite/init.sh"
 
 echo $directory "has been created"
 
 # Create vite app with vanilla template
-npm create vite@latest $directory -- --template vanilla
+npm create vite@latest $directory -- --template $template
 cd $directory
 
 # Clean directory
