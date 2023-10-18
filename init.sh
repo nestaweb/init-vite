@@ -7,30 +7,9 @@ fi
 
 if [ -z "$2" ]
 then 
-	# Clean directory
-	rm counter.js javascript.svg main.js style.css index.html
-
-	# Copy files from init-vite
-	cp -r ~/init-vite/app ./src
-	# cp -r ~/init-vite/index.html ./
-	cp -r ~/init-vite/styles ./src
-	mkdir images
-	touch index.html
-	cat ~/init-vite/head.html > index.html
-	echo $directory >> index.html
-	cat ~/init-vite/starter.html >> index.html
-	echo $directory >> index.html
-	cat ~/init-vite/end.html >> index.html
-
-	# Dependencies
-	npm add 'split-type'
-	npm add 'gsap'
-	echo "====== ====== there1 == ======= = === "
+	$template = "vanilla"
 else
 	template=$2
-	echo "====== ====== there2 == ======= = === "
-	cp -r ~/init-vite/styles ./src
-	cat ./index_vue.js > ./src/main.js
 fi
 
 if [ $1 == "--update" ]
@@ -46,8 +25,35 @@ alias init_vite="sh ~/init-vite/init.sh"
 echo $directory "has been created"
 
 # Create vite app with vanilla template
-npm create vite@latest $directory -- --template $template
 cd $directory
+
+if [ $template == "vanilla" ]
+then
+	npm create vite@latest $directory -- --template $template
+	# Clean directory
+	rm counter.js javascript.svg main.js style.css index.html
+
+	# Copy files from init-vite
+	cp -r ~/init-vite/app ./
+	# cp -r ~/init-vite/index.html ./
+	cp -r ~/init-vite/styles ./
+	mkdir images
+	touch index.html
+	cat ~/init-vite/head.html > index.html
+	echo $directory >> index.html
+	cat ~/init-vite/starter.html >> index.html
+	echo $directory >> index.html
+	cat ~/init-vite/end.html >> index.html
+
+	# Dependencies
+	npm add 'split-type'
+	npm add 'gsap'
+
+else
+	npm create vite@latest $directory -- --template $template
+	cp -r ~/init-vite/styles ./src
+	cat ~/init-vite/index_vue.js > ./src/main.js
+fi
 
 # Run dev server
 npm install
