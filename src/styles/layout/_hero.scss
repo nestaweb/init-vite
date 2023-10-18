@@ -1,0 +1,12 @@
+.hero {
+	height: 100vh;
+	&__content {
+		width: 100%;
+		@include page-grid;
+		@include center-align;
+
+		h2 {
+			text-align: center;
+		}
+	}
+}
