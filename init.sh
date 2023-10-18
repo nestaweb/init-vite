@@ -22,14 +22,12 @@ fi
 
 alias init_vite="sh ~/init-vite/init.sh"
 
-echo $directory "has been created"
-
-# Create vite app with vanilla template
-cd $directory
 
 if [ $template == "vanilla" ]
 then
 	npm create vite@latest $directory -- --template $template
+	echo $directory "has been created"
+	cd $directory
 	# Clean directory
 	rm counter.js javascript.svg main.js style.css index.html
 
@@ -51,6 +49,8 @@ then
 
 else
 	npm create vite@latest $directory -- --template $template
+	echo $directory "has been created"
+	cd $directory
 	cp -r ~/init-vite/styles ./src
 	cat ~/init-vite/index_vue.js > ./src/main.js
 fi
