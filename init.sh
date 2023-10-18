@@ -7,7 +7,7 @@ fi
 
 if [ -z "$2" ]
 then 
-	$template="vanilla"
+	template="vanilla"
 else
 	template=$2
 fi
